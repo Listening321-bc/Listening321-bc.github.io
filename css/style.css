@@ -1,0 +1,88 @@
+/* 全局重置 */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"思源宋体",serif;}
+:root{
+  --bg:#F6F2E9;
+  --text:#222222;
+  --card:#ffffff;
+  --accent:#8c5c38;
+}
+.dark{
+  --bg:#1a1a1a;
+  --text:#eee;
+  --card:#2c2c2c;
+  --accent:#b88c60;
+}
+body{background-color:var(--bg);color:var(--text);line-height:1.7;padding-bottom:4rem;transition:0.4s;}
+header{background-color:var(--card);padding:1rem 5rem;box-shadow:0 2px 8px #0002;position:sticky;top:0;z-index:99;}
+nav{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;}
+nav a{color:var(--text);text-decoration:none;font-size:1.1rem;padding:0.3rem 0.6rem;border-radius:4px;}
+nav a:hover{background-color:var(--accent);color:white;}
+.theme-btn{margin-left:auto;padding:0.4rem 1rem;border:none;border-radius:4px;background:var(--accent);color:white;cursor:pointer;}
+.container{max-width:1200px;margin:3rem auto;padding:0 2rem;}
+h1{margin-bottom:1rem;color:var(--accent);}
+h2{margin:1rem 0;}
+p{margin-bottom:1rem;font-size:1.05rem;}
+.card{background:var(--card);padding:2rem;border-radius:12px;margin:2rem 0;box-shadow:0 4px 12px #0001;}
+
+/* 图片悬停热点简易效果 */
+.img-wrap{margin:1rem 0;}
+.img-wrap img{width:100%;max-width:800px;border-radius:8px;transition:0.3s;}
+.img-wrap img:hover{transform:scale(1.02);box-shadow:0 6px 16px #0003;}
+
+/* Tab选项卡 */
+.tab-group{margin:2rem 0;}
+.tab-buttons{display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;}
+.tab-btn{padding:0.6rem 1.2rem;border:none;border-radius:6px;background:#ddd;cursor:pointer;}
+.tab-btn.active{background:var(--accent);color:white;}
+.tab-content{display:none;padding:1rem;background:var(--card);border-radius:8px;}
+.tab-content.active{display:block;}
+
+/* ====== 图片对比滑块，独立类名，不冲突原有样式 ====== */
+/* 图片对比滑块 - clip-path版本，稳定不溢出 */
+.slider-container{
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: 500px;
+  overflow: hidden;
+  margin: 30px auto;
+  border-radius: 12px;
+  user-select: none;
+}
+.slider-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.base-img{
+  z-index: 1;
+}
+.top-img{
+  z-index: 2;
+}
+.slider-divider{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #fff;
+  z-index: 9;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+}
+.slider-divider::after{
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}

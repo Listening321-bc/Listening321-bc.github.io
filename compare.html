@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中西园林对比</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="china.html">中国古典园林</a>
+    <a href="west.html">西方古典园林</a>
+    <a href="compare.html">中西对比赏析</a>
+    <a href="timeline.html">发展时间轴</a>
+    <a href="about.html">关于本作品</a>
+    <button class="theme-btn">明暗切换</button>
+  </nav>
+</header>
+
+<!-- 1. 拖动图片对比模块 -->
+<div class="container">
+  <div class="card">
+    <h1>中西园林拖动对比</h1>
+    <p class="card-subtitle">左：中国拙政园｜右：凡尔赛花园｜拖动中间白线对比</p>
+
+    <!-- 图片对比区 -->
+    <div class="slider-container">
+      <img class="slider-img base-img" src="img/compare-west.jpg" alt="凡尔赛花园">
+      <img class="slider-img top-img" src="img/compare-china.jpg" alt="拙政园">
+      <div class="slider-divider"></div>
+    </div>
+
+    <!-- 文字对比区 -->
+    <div class="compare-text">
+      <div class="tab-group">
+        <div class="tab-buttons">
+          <button class="tab-btn active">造园理念</button>
+          <button class="tab-btn">空间布局</button>
+          <button class="tab-btn">绘画美学</button>
+          <button class="tab-btn">植物处理</button>
+        </div>
+
+        <div class="tab-content active">
+          <p><strong>中国：</strong>天人合一，模仿自然山水，追求诗情画意。</p>
+          <p><strong>西方：</strong>人支配自然，强调理性秩序与几何构图。</p>
+        </div>
+
+        <div class="tab-content">
+          <p><strong>中国：</strong>不对称布局，曲折藏景，移步换景。</p>
+          <p><strong>西方：</strong>强中轴线，对称开阔，突出透视纵深。</p>
+        </div>
+
+        <div class="tab-content">
+          <p><strong>中国：</strong>散点透视，如山水画卷逐步展开。</p>
+          <p><strong>西方：</strong>单点透视，视线汇聚于中心焦点。</p>
+        </div>
+
+        <div class="tab-content">
+          <p><strong>中国：</strong>保留花木自然形态，重在意境。</p>
+          <p><strong>西方：</strong>修剪成几何造型，体现人工秩序。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 滑块的JS（这个JS只管图片拖动，不动tab） -->
+<script>
+const container = document.querySelector('.slider-container');
+const topImg = document.querySelector('.top-img');
+const divider = document.querySelector('.slider-divider');
+let isDrag = false;
+let percent = 50;
+function updateSlider(posPercent) {
+  percent = Math.max(0, Math.min(100, posPercent));
+  topImg.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+  divider.style.left = `${percent}%`;
+}
+divider.addEventListener('mousedown', ()=> isDrag = true);
+document.addEventListener('mouseup', ()=> isDrag = false);
+document.addEventListener('mousemove', (e)=>{
+  if(!isDrag) return;
+  const rect = container.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const p = (x / rect.width) * 100;
+  updateSlider(p);
+})
+updateSlider(50);
+</script>
+
+<!-- tab切换的JS放在最底部！ -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

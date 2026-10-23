@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中西园林发展时间轴</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* 时间轴专属样式，写在这里不用修改style.css */
+.timeline-wrap{margin:3rem 0;overflow-x:auto;padding-bottom:2rem;}
+.timeline{display:flex;gap:2rem;min-width:900px;padding:1rem 0;border-top:3px solid var(--accent);margin-top:3rem;}
+.time-item{min-width:200px;position:relative;padding-top:1rem;cursor:pointer;}
+.time-dot{width:16px;height:16px;border-radius:50%;background:var(--accent);position:absolute;top:-9px;left:0;}
+.time-year{font-weight:bold;color:var(--accent);margin-bottom:0.5rem;}
+.time-title{font-weight:bold;}
+.time-desc{display:none;margin-top:0.8rem;background:var(--card);padding:0.8rem;border-radius:8px;box-shadow:0 2px 8px #0002;}
+.time-item.active .time-desc{display:block;}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="china.html">中国古典园林</a>
+    <a href="west.html">西方古典园林</a>
+    <a href="compare.html">中西对比赏析</a>
+    <a href="timeline.html">发展时间轴</a>
+    <a href="about.html">关于本作品</a>
+    <button class="theme-btn">明暗切换</button>
+  </nav>
+</header>
+<div class="container">
+<div class="card">
+<h1>中西方园林艺术发展时间轴</h1>
+<p>点击下方圆点节点，展开对应时期的园林与绘画背景。横向拖动/滚动查看东西方园林发展史。</p>
+<div class="timeline-wrap">
+  <div class="timeline">
+ <div class="time-item">
+  <div class="time-dot"></div>
+  <div class="time-year">魏晋南北朝</div>
+  <div class="time-title">中国：山水园萌芽</div>
+  <img src="img/weijin.jpg" alt="魏晋山水画" style="width:100%;border-radius:6px;">
+  <div class="time-desc">
+    乱世中文人寄情山水，山水画独立成画。园林开始脱离单纯狩猎游乐，转向表达山水意境，奠定写意造园思想。
+  </div>
+</div>
+<div class="time-item">
+  <div class="time-dot"></div>
+  <div class="time-year">唐宋</div>
+  <div class="time-title">中国：文人园林兴盛</div>
+  <img src="img/tangsong.jpg" alt="唐宋山水画" style="width:100%;border-radius:6px;">
+  <div class="time-desc">
+    山水画艺术达到顶峰，诗画入园成为潮流。文人参与造园，追求意境，是后世江南园林的思想源头。
+  </div>
+</div>
+<div class="time-item">
+  <div class="time-dot"></div>
+  <div class="time-year">16世纪 文艺复兴</div>
+  <div class="time-title">西方：意大利台地园</div>
+  <img src="img/aite.jpg" alt="台地园" style="width:100%;border-radius:6px;">
+  <div class="time-desc">
+    透视绘画理论成熟。台地园林依山而建，层层退台，利用透视强化纵深感，代表作品：埃斯特庄园。
+  </div>
+</div>
+<div class="time-item">
+  <div class="time-dot"></div>
+  <div class="time-year">17世纪 明清</div>
+  <div class="time-title">中国：江南园林鼎盛</div>
+  <img src="img/zhuozyuan.jpg" alt="拙政园" style="width:100%;border-radius:6px;">
+  <div class="time-desc">
+    《园冶》刊行，造园理论体系完成。拙政园、留园陆续建成。框景、借景、对景手法成熟，园林成为可游览的立体山水画。
+  </div>
+</div>
+<div class="time-item">
+  <div class="time-dot"></div>
+  <div class="time-year">17世纪 法国</div>
+  <div class="time-title">西方：凡尔赛花园</div>
+  <img src="img/versailles.jpg" alt="凡尔赛花园" style="width:100%;border-radius:6px;">
+  <div class="time-desc">
+    古典主义园林巅峰作品。严格中轴线透视构图，在大地绘制宏大几何图景，大量版画记录园林风貌。
+  </div>
+</div>
+<div class="time-item">
+  <div class="time-dot"></div>
+  <div class="time-year">18世纪</div>
+  <div class="time-title">英国风景园</div>
+  <img src="img/english.jpg" alt="英国风景园" style="width:100%;border-radius:6px;">
+  <div class="time-desc">
+    受到中国园林绘画美学的启发，抛弃几何整形园林，模仿自然起伏的风景，西方园林审美发生重大转向。
+  </div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+<script src="js/script.js"></script>
+<script>
+// 时间轴点击展开
+const timeItems = document.querySelectorAll('.time-item');
+timeItems.forEach(item=>{
+  item.addEventListener('click',()=>{
+    item.classList.toggle('active');
+  })
+})
+</script>
+</body>
+</html>
